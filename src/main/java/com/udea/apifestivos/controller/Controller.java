@@ -12,7 +12,7 @@ import java.util.Date;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/festivos/")
+@RequestMapping("/festivos/verificar")
 public class Controller {
 
     @Autowired
