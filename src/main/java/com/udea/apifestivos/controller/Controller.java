@@ -1,13 +1,14 @@
 package com.udea.apifestivos.controller;
 
 
+import com.udea.apifestivos.entities.dto.FestivoDto;
 import com.udea.apifestivos.services.FestivoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
-
+import java.util.List;
 
 
 @RestController
@@ -34,6 +35,10 @@ public class Controller {
         } else {
             return ResponseEntity.badRequest().body("Fecha NO valida");
         }
+    }
+    @RequestMapping(value = "/obtener/{ano}", method = RequestMethod.GET)
+    public List<FestivoDto> listaFestivo(@PathVariable int ano) {
+        return servicio.obtenerFestivos(ano);
     }
 
 }
